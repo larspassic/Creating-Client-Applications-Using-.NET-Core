@@ -14,4 +14,8 @@
     <Resource Include="images\ic_thumb_up_black_24dp_2x.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
 </Project>
