@@ -23,6 +23,8 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
+
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
