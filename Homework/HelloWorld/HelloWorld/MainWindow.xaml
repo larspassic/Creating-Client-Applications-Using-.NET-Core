@@ -10,10 +10,10 @@
     <StackPanel>
 
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" ></TextBox>
+        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged" ></TextBox>
         <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword"></TextBox>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
+        <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
 
         <Button>
             <StackPanel Orientation="Horizontal">
