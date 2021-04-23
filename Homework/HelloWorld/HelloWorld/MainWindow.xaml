@@ -17,12 +17,16 @@
         
         <!--I made an empty TextBlock just for spacing-->
         <TextBlock/>
+        <Button Width="200" Height="25">
+            <CheckBox>I agree to click thumbs up</CheckBox>
+        </Button>
+            <TextBlock/>
 
-        <Button Width="200">
+        <Button Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal">
-                <Image Source="images/ic_thumb_up_black_24dp_2x.png"  />
-                
-                <TextBlock Text="Thumbs Up" VerticalAlignment="Center" Padding="20"/>
+                <Image Source="/ic_thumb_up_black_24dp_2x.png" HorizontalAlignment="Left" />
+
+                <TextBlock Text="Thumbs Up" VerticalAlignment="Top" Padding="5"/>
             </StackPanel>
         </Button>
 
