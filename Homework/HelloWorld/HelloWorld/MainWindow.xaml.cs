@@ -23,7 +23,7 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
+            //this.WindowState = WindowState.Maximized;
 
         }
 
@@ -38,6 +38,11 @@ namespace HelloWorld
 
         }
 
+        private void uxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckForCharacters();
+        }
+
         private void CheckForCharacters()
         {
             //Check if both uxPassword and uxName have something in them, if so, enable the button
@@ -45,16 +50,12 @@ namespace HelloWorld
             {
                 this.uxSubmit.IsEnabled = true;
             }
+            
             //Else if statement to turn the button off
             else if (uxName.Text == null && uxPassword.Text == null)
             {
                 this.uxSubmit.IsEnabled = false;
             }
-        }
-
-        private void uxName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            CheckForCharacters();
         }
     }
 }

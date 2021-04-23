@@ -14,8 +14,11 @@
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
+        
+        <!--I made an empty TextBlock just for spacing-->
+        <TextBlock/>
 
-        <Button>
+        <Button Width="200">
             <StackPanel Orientation="Horizontal">
                 <Image Source="images/ic_thumb_up_black_24dp_2x.png"  />
                 
