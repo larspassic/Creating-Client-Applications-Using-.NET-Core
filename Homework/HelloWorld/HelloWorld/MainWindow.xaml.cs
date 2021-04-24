@@ -51,15 +51,10 @@ namespace HelloWorld
             }
             
             //Else if statement to turn the button off
-            else if (uxName.Text == null || uxPassword.Text == null)
+            else if (uxName.Text == "" || uxPassword.Text == "")
             {
                 this.uxSubmit.IsEnabled = false;
             }
-        }
-
-        private void uxName_TextInput(object sender, TextCompositionEventArgs e)
-        {
-            CheckForCharacters();
         }
     }
 }
