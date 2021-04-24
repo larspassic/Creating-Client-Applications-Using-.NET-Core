@@ -10,7 +10,7 @@
     <StackPanel>
 
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged" ></TextBox>
+        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged" TextInput="uxName_TextInput" ></TextBox>
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>

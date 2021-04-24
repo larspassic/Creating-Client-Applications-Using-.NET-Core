@@ -35,7 +35,6 @@ namespace HelloWorld
         private void uxPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
             CheckForCharacters();
-
         }
 
         private void uxName_TextChanged(object sender, TextChangedEventArgs e)
@@ -46,16 +45,21 @@ namespace HelloWorld
         private void CheckForCharacters()
         {
             //Check if both uxPassword and uxName have something in them, if so, enable the button
-            if (uxName.Text != null && uxPassword.Text != null)
+            if (uxName.Text != "" && uxPassword.Text != "")
             {
                 this.uxSubmit.IsEnabled = true;
             }
             
             //Else if statement to turn the button off
-            else if (uxName.Text == null && uxPassword.Text == null)
+            else if (uxName.Text == null || uxPassword.Text == null)
             {
                 this.uxSubmit.IsEnabled = false;
             }
+        }
+
+        private void uxName_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            CheckForCharacters();
         }
     }
 }
