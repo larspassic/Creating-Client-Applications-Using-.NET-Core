@@ -26,9 +26,7 @@
 
         <!--Real Password box - Exercise 2 -->
         <TextBlock>Enter Password:</TextBlock>
-        <PasswordBox x:Name="uxRealPassword"
-                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
-
+        <PasswordBox x:Name="uxRealPassword"></PasswordBox>
         <Label x:Name="uxRealPasswordError"
                Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
 

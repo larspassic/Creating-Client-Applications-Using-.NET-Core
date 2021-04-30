@@ -21,12 +21,13 @@ namespace Collections
             autos.Add(new Auto { Name = "Coupe", MaxSpeed = 110, Price = 3000 });
 
             // TBD: Find the lowest price auto
-            var auto = tbd;
+            var auto = autos.OrderBy(t => t.Price).First();
 
             Console.WriteLine("Lowest Price: Name={0} Price={1}", auto.Name, auto.Price);
 
             // TBD: Find the fastest auto
-            auto = tbd;
+            //auto = autos.Max(autos.MaxSpeed); //can't get this to work
+            auto = autos.OrderBy(t => t.MaxSpeed).Last();
 
             Console.WriteLine("Fastest Speed: Name={0} Speed={1}", auto.Name, auto.MaxSpeed);
 

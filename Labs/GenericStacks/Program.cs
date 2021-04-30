@@ -18,16 +18,19 @@ namespace GenericStacks
         }
 
         //Exercise - make a method IsEmpty to check if the stack is empty
-        public bool IsEmpty()
+        public bool IsEmpty
         {
-            bool result = false;
-            
-            if(sp == 0)
+            get
             {
-                result = true;
-            }
+                bool result = false;
 
-            return result;
+                if (sp == 0)
+                {
+                    result = true;
+                }
+
+                return result;
+            }
         }
     }
 
