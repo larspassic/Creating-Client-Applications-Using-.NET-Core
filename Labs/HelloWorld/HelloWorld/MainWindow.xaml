@@ -1,0 +1,34 @@
+﻿<Window x:Class="HelloWorld.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
+
+    <StackPanel>
+
+        <TextBlock>Enter Name:</TextBlock>
+        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged" />
+        <TextBlock>Enter Password:</TextBlock>
+        <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
+        
+        <!--I made an empty TextBlock just for spacing-->
+        <TextBlock/>
+        <Button Width="200" Height="25">
+            <CheckBox>I agree to click thumbs up</CheckBox>
+        </Button>
+            <TextBlock/>
+
+        <Button Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/ic_thumb_up_black_24dp_2x.png" HorizontalAlignment="Left" />
+
+                <TextBlock Text="Thumbs Up" VerticalAlignment="Top" Padding="5"/>
+            </StackPanel>
+        </Button>
+
+    </StackPanel>
+</Window>
