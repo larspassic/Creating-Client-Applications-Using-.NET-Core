@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" WindowState="Normal">
 
-    <StackPanel>
+    <StackPanel x:Name="uxContainer">
 
         <TextBlock>Enter Name:</TextBlock>
         <TextBox x:Name="uxName"

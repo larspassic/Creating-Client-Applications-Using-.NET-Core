@@ -27,8 +27,11 @@ namespace HelloWorld
             InitializeComponent();
             //this.WindowState = WindowState.Maximized;
 
-            uxName.DataContext = user;
-            uxNameError.DataContext = user;
+            //Old way
+            //uxName.DataContext = user;
+            //uxNameError.DataContext = user;
+
+            uxContainer.DataContext = user;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
