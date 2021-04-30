@@ -20,11 +20,15 @@ namespace HelloWorld
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Models.User user = new Models.User();
+        
         public MainWindow()
         {
             InitializeComponent();
             //this.WindowState = WindowState.Maximized;
 
+            uxName.DataContext = user;
+            uxNameError.DataContext = user;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)

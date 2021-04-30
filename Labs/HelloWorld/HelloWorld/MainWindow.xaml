@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
+        Title="MainWindow" Height="350" Width="525" WindowState="Normal">
 
     <StackPanel>
 
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged" />
+        <TextBox x:Name="uxName"
+            Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        </TextBox>
+
+        <Label x:Name="uxNameError"
+               Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></Label>
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
