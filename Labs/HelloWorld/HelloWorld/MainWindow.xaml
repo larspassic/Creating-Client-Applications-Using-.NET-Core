@@ -10,15 +10,34 @@
     <StackPanel x:Name="uxContainer">
 
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName"
+        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged"
             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
         </TextBox>
-
         <Label x:Name="uxNameError"
-               Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></Label>
+               Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
+        
+        
         <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
+        <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"
+            Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" >
+        </TextBox>
+        <Label x:Name="uxPasswordError"
+               Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
+
+        <!--Real Password box - Exercise 2 -->
+        <TextBlock>Enter Password:</TextBlock>
+        <PasswordBox x:Name="uxRealPassword"
+                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label x:Name="uxRealPasswordError"
+               Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
+
+
+
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
+
+
+        
         
         <!--I made an empty TextBlock just for spacing-->
         <TextBlock/>
