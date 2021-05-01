@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows;
+
+//Assignment 2
+//Author: Passic, Lars, 2011958
 
 namespace ListsAndMoreLists
 {
@@ -6,7 +11,11 @@ namespace ListsAndMoreLists
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var users = new List<Models.User>();
+
+            users.Add(new Models.User { Name = "Dave", Password = "hello" });
+            users.Add(new Models.User { Name = "Steve", Password = "steve" });
+            users.Add(new Models.User { Name = "Lisa", Password = "hello" });
         }
     }
 }
