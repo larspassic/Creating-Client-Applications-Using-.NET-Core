@@ -21,6 +21,7 @@ namespace ListsAndMoreLists
             //Checked the collection exercise - looks like it is okay to do the homework in main.
 
             //Use System.Linq for all the requirements. IE.Don't use a for/foreach loop to manipulate the users list.
+
             //1.Display to the console, the names of the users where the password is "hello" and you can use a foreach here only.
             //Hint: Where
             
