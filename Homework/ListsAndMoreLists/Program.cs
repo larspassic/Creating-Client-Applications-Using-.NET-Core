@@ -26,7 +26,7 @@ namespace ListsAndMoreLists
             //Hint: Where
 
             //Use LINQ query to find the results
-            var results = users.Where(t => t.Password = "hello"); //Not sure how to get this working
+            var results = users.Where(t => t.Password == "hello"); //Not sure how to get this working
 
             //Announce the result to the console
             Console.WriteLine($"Users where password was \"hello\" "); //use escape characters to say "hello"
