@@ -24,7 +24,19 @@ namespace ListsAndMoreLists
 
             //1.Display to the console, the names of the users where the password is "hello" and you can use a foreach here only.
             //Hint: Where
-            
+
+            //Use LINQ query to find the results
+            var results = users.Where(t => t.Password = "hello"); //Not sure how to get this working
+
+            //Announce the result to the console
+            Console.WriteLine($"Users where password was \"hello\" "); //use escape characters to say "hello"
+
+            //Allowed to use foreach to display each result out
+            foreach (var result in results)
+            {
+                Console.WriteLine($"Found user {result.Name}");
+
+            }
             
             //2.Delete any passwords that are the lower-cased version of their Name. Do not just look for "steve".It has to be data - driven.
             //Hint: Remove or RemoveAll
