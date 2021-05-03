@@ -37,19 +37,24 @@ namespace ListsAndMoreLists
                 Console.WriteLine($"Found user {result.Name}");
 
             }
-            
+
             //2.Delete any passwords that are the lower-cased version of their Name. Do not just look for "steve".It has to be data - driven.
             //Hint: Remove or RemoveAll
-            
-            
+
+
             //3.Delete the first User that has the password "hello".
             //Hint: First or FirstOrDefault
-            
-            
+
+
             //4.Display to the console the remaining users with their Name and Password.
             //Hint: ForEach
+            var finalresults = users.FindAll(a => a != null);
 
+            foreach (var result in finalresults)
+            {
+                Console.WriteLine($"Found user {result.Name}");
 
+            }
         }
     }
 }
