@@ -22,11 +22,13 @@ namespace ListsAndMoreLists
 
             //Use System.Linq for all the requirements. IE.Don't use a for/foreach loop to manipulate the users list.
 
+            ////////////////////
             //1.Display to the console, the names of the users where the password is "hello" and you can use a foreach here only.
+            ////////////////////
             //Hint: Where
 
             //Use LINQ query to find the results
-            var results = users.Where(t => t.Password == "hello"); //Not sure how to get this working
+            var results = users.Where(t => t.Password == "hello");
 
             //Announce the result to the console
             Console.WriteLine($"Users where password was \"hello\" "); //use escape characters to say "hello"
@@ -38,15 +40,24 @@ namespace ListsAndMoreLists
 
             }
 
+            ////////////////////
             //2.Delete any passwords that are the lower-cased version of their Name. Do not just look for "steve".It has to be data - driven.
+            ////////////////////
             //Hint: Remove or RemoveAll
 
+            //Use a find query to find users where the name matches the lower case version of their name
+            var passwordresults = users.Find(t => (t.Name).ToLower() == t.Password);
 
+
+            ////////////////////
             //3.Delete the first User that has the password "hello".
+            ////////////////////
             //Hint: First or FirstOrDefault
+            var helloresults = users.Find(t => t.Password == "hello");
 
-
+            ////////////////////
             //4.Display to the console the remaining users with their Name and Password.
+            ////////////////////
             //Hint: ForEach
             var finalresults = users.FindAll(a => a != null);
 
