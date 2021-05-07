@@ -18,13 +18,19 @@
                     <RowDefinition Height="20"></RowDefinition>
                     <RowDefinition Height="20"></RowDefinition>
                     <RowDefinition Height="20"></RowDefinition>
-                </Grid.RowDefinitions>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+            </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Text="User Name:" />
                 <TextBox Grid.Row="1" Text="{Binding UserName}"  />
+                
                 <TextBlock Grid.Row="2" Text="Password:" Background="AliceBlue" />
                 <TextBox Grid.Row="3" Text="{Binding UserPassword}"/>
-            </Grid>
+                
+                <TextBlock Grid.Row="4" Text="Age:" />
+                <TextBox Grid.Row="5" Text="{Binding UserAge}" />
+        </Grid>
 
         </StackPanel>
 
