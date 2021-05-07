@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld
 {
@@ -32,6 +33,11 @@ namespace HelloWorld
             //uxNameError.DataContext = user;
 
             uxContainer.DataContext = user;
+
+            var sample = new SampleContext();
+            sample.User.Load();
+            var users = sample.User.Local.ToObservableCollection();
+            uxList.ItemsSource = users;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
