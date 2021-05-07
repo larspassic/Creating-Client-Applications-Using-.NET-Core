@@ -38,7 +38,7 @@ namespace ListsAndMoreLists
             //Allowed to use foreach to display each result out
             foreach (var result in results)
             {
-                Console.WriteLine($"Found user {result.Name}, {result.Password}");
+                Console.WriteLine($"Found user: {result.Name}, and password: {result.Password}");
             }
 
             //Extra space
@@ -74,7 +74,7 @@ namespace ListsAndMoreLists
             var helloresults = users.Find(t => t.Password == "hello");
 
             //Explain to the console what we are going to do
-            Console.WriteLine($"Removing the first user who's password is \"hello\": {helloresults.Name}, {helloresults.Password}");
+            Console.WriteLine($"Removing the first user who's password is \"hello\" user: {helloresults.Name}, password: {helloresults.Password}");
 
             //Actually remove the user
             users.Remove(helloresults);
