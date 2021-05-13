@@ -31,14 +31,26 @@ namespace Sorting_Listview_Columns
             //Starter data from Cstructor
             var users = new List<Models.User>();
 
+            users.Add(new Models.User { Name = "Dave", Password = "2DavePwd" });
             users.Add(new Models.User { Name = "Dave", Password = "1DavePwd" });
             users.Add(new Models.User { Name = "Steve", Password = "2StevePwd" });
             users.Add(new Models.User { Name = "Lisa", Password = "3LisaPwd" });
 
             uxList.ItemsSource = users;
 
+            //Create a "collectionview" object called view?
+            //Got this from one of the links on cstructor but don't really know what it does.
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
-            view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
+            
+
+
+            //Add a "Sort Description"
+            //Tested switching back and forth between ascending and descending and this does work
+            view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
+
+            //Add another "Sort Description" ?
+            //Tested and confirmed that this secondary SortDescription works! Even though 2DavePwd is added first, the secondary sort kicks in for the password column.
+            view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
         }
     }
 }
