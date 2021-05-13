@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -35,6 +36,9 @@ namespace Sorting_Listview_Columns
             users.Add(new Models.User { Name = "Lisa", Password = "3LisaPwd" });
 
             uxList.ItemsSource = users;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
         }
     }
 }

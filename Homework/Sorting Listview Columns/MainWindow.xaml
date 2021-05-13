@@ -11,8 +11,14 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumnHeader>
+                            
+                        </GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Password}">
+                        <GridViewColumnHeader>
+                            
+                        </GridViewColumnHeader>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
