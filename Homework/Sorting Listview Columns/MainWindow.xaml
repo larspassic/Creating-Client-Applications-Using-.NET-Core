@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sorting_Listview_Columns"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:p="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Width="450" Height="250">
     <Grid>
-        <ListView x:Name="uxList">
+        <ListView x:Name="uxList" Height="Auto" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}">
-                        <GridViewColumnHeader Content="Name">
-
+                        <GridViewColumnHeader Name="NameColumnHeader" Content="Name" Width="Auto" Click="NameColumnHeader_Click">
+                            
                         </GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Password}">
-                        <GridViewColumnHeader Content="Password">
+                        <GridViewColumnHeader Name="PasswordColumnHeader" Content="Password" Width="Auto" Click="PasswordColumnHeader_Click">
                             
                         </GridViewColumnHeader>
                     </GridViewColumn>

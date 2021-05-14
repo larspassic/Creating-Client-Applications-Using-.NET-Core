@@ -41,8 +41,10 @@ namespace Sorting_Listview_Columns
             //Create a "collectionview" object called view?
             //Got this from one of the links on cstructor but don't really know what it does.
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
-            
 
+            view.SortDescriptions.Clear();
+
+            //Testing the sorting of the column headers
 
             //Add a "Sort Description"
             //Tested switching back and forth between ascending and descending and this does work
@@ -51,6 +53,39 @@ namespace Sorting_Listview_Columns
             //Add another "Sort Description" ?
             //Tested and confirmed that this secondary SortDescription works! Even though 2DavePwd is added first, the secondary sort kicks in for the password column.
             view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
+        }
+
+        
+        
+        
+        
+        
+        //I tried to create these two event handlers via Visual Studio "click" events but I can't get them to work.
+
+        private void NameColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            //First, Sabet said we need to clear the sort descriptions.
+            view.SortDescriptions.Clear();
+
+            //Add a "Sort Description"
+            view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
+
+            //Used a message box to confirm that my event handler was working when I clicked on it
+            MessageBox.Show("You clicked the Name column header!");
+        }
+
+
+        private void PasswordColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            //First, Sabet said we need to clear the sort descriptions.
+            view.SortDescriptions.Clear();
+
+            //Add another "Sort Description" ?
+            //Tested and confirmed that this secondary SortDescription works! Even though 2DavePwd is added first, the secondary sort kicks in for the password column.
+            view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
+
+            //Used a message box to confirm that my event handler was working when I clicked on it
+            MessageBox.Show("You clicked the Password column header!");
         }
     }
 }
