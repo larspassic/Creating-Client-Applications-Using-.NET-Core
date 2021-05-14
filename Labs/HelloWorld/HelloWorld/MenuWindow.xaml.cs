@@ -37,7 +37,7 @@ namespace HelloWorld
         private void OnNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             // Set this to false if the New command is not available
-            e.CanExecute = true;
+            e.CanExecute = false;
         }
 
         public bool IsFileNewEnabled
@@ -46,6 +46,12 @@ namespace HelloWorld
             {
                 return false;
             }
+        }
+
+        //Created a new event handler to close the application
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

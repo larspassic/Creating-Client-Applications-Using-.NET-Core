@@ -28,6 +28,28 @@
             <MenuItem Header="_Help"/>
         </Menu>
 
+        <ToolBarTray>
+            <ToolBar>
+                <Button Command="New" Content="New" Click="OnNew_Click"/>
+                <Button Content="Copy"/>
+                <Button Content="Paste"/>
+                
+            </ToolBar>
+            <ToolBar>
+                <Label>Font size:</Label>
+                <ComboBox>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">12</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Name="Lars_Bar">
+                <Button Name="Close" Content="Close Application" Click="Close_Click"/>
+                <Button Content="Cory" Click="OnClose_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+
         <Button Content="Click Me">
             <Button.ContextMenu>
                 <ContextMenu>
