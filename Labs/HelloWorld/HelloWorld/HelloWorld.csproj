@@ -9,7 +9,9 @@
   <ItemGroup>
     <None Remove="ic_thumb_up_black_24dp_2x.png" />
     <None Remove="images\ic_thumb_up_black_24dp_2x.png" />
+    <None Remove="images\new.jpg" />
     <None Remove="images\wpf-menus-new.png" />
+    <None Remove="images\wpf-world.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +25,9 @@
   <ItemGroup>
     <Resource Include="ic_thumb_up_black_24dp_2x.png" />
     <Resource Include="images\ic_thumb_up_black_24dp_2x.png" />
+    <Resource Include="images\new.jpg" />
     <Resource Include="images\wpf-menus-new.png" />
+    <Resource Include="images\wpf-world.png" />
   </ItemGroup>
 
 </Project>

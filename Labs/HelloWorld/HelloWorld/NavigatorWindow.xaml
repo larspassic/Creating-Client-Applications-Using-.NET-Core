@@ -1,0 +1,15 @@
+﻿<Window x:Class="HelloWorld.NavigatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld"
+        mc:Ignorable="d"
+        Title="NavigatorWindow" Height="450" Width="800">
+    <StackPanel HorizontalAlignment="Center" >
+        <TextBlock FontSize="24" HorizontalAlignment="Center">Enter an address: <Run Foreground="Red" FontWeight="Bold">(Don't forget to include https:// ) </Run></TextBlock>
+        <TextBox x:Name="uxNavTextBox" Margin="0,15,0,0" Text="https://" MaxLines="1" MaxHeight="20" Width="750" VerticalAlignment="Top"></TextBox>
+        <Button x:Name="uxGo" Margin="0,15,0,0" MaxHeight="20" Width="50" Click="uxGo_Click" IsDefault="True">Go</Button>
+        <Image Margin="0,15,0,0" Source="images\wpf-world.png"></Image>
+    </StackPanel>
+</Window>
