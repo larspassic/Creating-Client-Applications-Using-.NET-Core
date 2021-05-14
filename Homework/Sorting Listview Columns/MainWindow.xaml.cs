@@ -55,8 +55,7 @@ namespace Sorting_Listview_Columns
             view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
         }
 
-        
-        
+       
         
         
         
@@ -64,19 +63,30 @@ namespace Sorting_Listview_Columns
 
         private void NameColumnHeader_Click(object sender, RoutedEventArgs e)
         {
+            //Asked a friend for help and they gave me this - how to pull in the column header
+            var columnHeader = e.OriginalSource as GridViewColumnHeader;
+
+            //Create the collectionView object
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
+
             //First, Sabet said we need to clear the sort descriptions.
             view.SortDescriptions.Clear();
 
             //Add a "Sort Description"
             view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
 
-            //Used a message box to confirm that my event handler was working when I clicked on it
-            MessageBox.Show("You clicked the Name column header!");
         }
 
 
         private void PasswordColumnHeader_Click(object sender, RoutedEventArgs e)
         {
+            
+            //Asked a friend for help and they gave me this - how to pull in the column header
+            var columnHeader = e.OriginalSource as GridViewColumnHeader;
+
+            //Create the collectionView object
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
+
             //First, Sabet said we need to clear the sort descriptions.
             view.SortDescriptions.Clear();
 
@@ -84,8 +94,6 @@ namespace Sorting_Listview_Columns
             //Tested and confirmed that this secondary SortDescription works! Even though 2DavePwd is added first, the secondary sort kicks in for the password column.
             view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
 
-            //Used a message box to confirm that my event handler was working when I clicked on it
-            MessageBox.Show("You clicked the Password column header!");
         }
     }
 }
