@@ -46,7 +46,6 @@
             </ToolBar>
             <ToolBar Name="Lars_Bar">
                 <Button Name="Close" Content="Close Application" Click="Close_Click"/>
-                <Button Content="Cory" Click="OnClose_Click"/>
             </ToolBar>
         </ToolBarTray>
 
