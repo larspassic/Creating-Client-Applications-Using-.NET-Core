@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//Assignment 04
+//Author: Passic, Lars, 2011958
+
 namespace ZipCode_TextBox
 {
     /// <summary>
