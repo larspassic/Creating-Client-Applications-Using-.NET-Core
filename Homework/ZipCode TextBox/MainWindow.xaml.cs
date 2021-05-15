@@ -27,5 +27,18 @@ namespace ZipCode_TextBox
         {
             InitializeComponent();
         }
+
+        //Event handler for every time text inside the text box is changed.
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //Code to validate Zip Codes goes here
+        }
+
+        //Event handler for when submit button is clicked.
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Pop up a message box to show that the user was successful.
+            MessageBox.Show($"You submitted a valid US or Canadian Zip Code!");
+        }
     }
 }

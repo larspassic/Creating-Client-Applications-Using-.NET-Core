@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:ZipCode_TextBox"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel>
+        <TextBlock Margin="0,15,0,0" FontSize="72" TextAlignment="Center">ZipCode Checker</TextBlock>
+        <TextBlock Margin="0,15,0,0" TextAlignment="Center" Width="500">Enter text and we will check if it is a valid US or Canadian Zip Code</TextBlock>
+        <TextBox  Margin="0,5,0,0" Width="200" TextChanged="TextBox_TextChanged"></TextBox>
+        
+        <TextBlock  Margin="0,15,0,0" FontStyle="Italic" Width="500" HorizontalAlignment="Center" TextAlignment="Center" Visibility="Hidden">
+            <Run Foreground="Red">The text you entered was not a valid Zip Code. Please try again.</Run>
+        </TextBlock>
+        
+        <Button Margin="0,15,0,0" Width="100" IsEnabled="False" Click="Button_Click">Submit</Button>
+        
+        
+        
+    </StackPanel>
 </Window>
