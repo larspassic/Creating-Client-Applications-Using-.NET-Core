@@ -74,19 +74,19 @@ namespace ZipCode_TextBox
         private bool CheckForCanZipCode(string textBoxContents)
         {
             //Create a string to hold the regex pattern for Canadian postal codes
-            string canZipPattern = "asdf";
+            string canZipPattern = @"^[A-Z]\d[A-Z]\d[A-Z]\d$";
 
             //Create the Regex object out of the string
             Regex canRegex = new Regex(canZipPattern);
 
             //Return the reuslts of the match
-            return canRegex.IsMatch(canZipPattern);
+            return canRegex.IsMatch(textBoxContents);
         }
 
         private bool CheckForUSZipCode(string textBoxContents)
         {
             //Create a string to hold the regex pattern for US zip codes
-            string usZipPattern = "asdf";
+            string usZipPattern = @"^\d{5}$|^\d{5}-\d{4}$";
 
             //Create the Regex object out of the string
             Regex usRegex = new Regex(usZipPattern);
