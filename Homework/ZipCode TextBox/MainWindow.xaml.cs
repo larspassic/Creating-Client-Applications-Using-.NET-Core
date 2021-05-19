@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -72,12 +73,26 @@ namespace ZipCode_TextBox
 
         private bool CheckForCanZipCode(string textBoxContents)
         {
-            throw new NotImplementedException();
+            //Create a string to hold the regex pattern for Canadian postal codes
+            string canZipPattern = "asdf";
+
+            //Create the Regex object out of the string
+            Regex canRegex = new Regex(canZipPattern);
+
+            //Return the reuslts of the match
+            return canRegex.IsMatch(canZipPattern);
         }
 
         private bool CheckForUSZipCode(string textBoxContents)
         {
-            throw new NotImplementedException();
+            //Create a string to hold the regex pattern for US zip codes
+            string usZipPattern = "asdf";
+
+            //Create the Regex object out of the string
+            Regex usRegex = new Regex(usZipPattern);
+
+            //Return the results of the match
+            return usRegex.IsMatch(textBoxContents);
         }
 
         //Event handler for when submit button is clicked.
