@@ -47,22 +47,36 @@ namespace ZipCode_TextBox
 
             //Actually act on the test results
             //Code for if a Zip code was found
-            if (usZipCodeFound || canZipCodeFound)
+            if (usZipCodeFound || canZipCodeFound == true)
             {
                 //If there was a previous attempt, the error message may still be showing
                 //Since Zip Code was found and we are successful now, need to disable it
-                TextBlockErrorMessage.IsEnabled = false;
+                TextBlockErrorMessage.Visibility = System.Windows.Visibility.Hidden;
                 
                 //Enable the button
                 ButtonSubmit.IsEnabled = true;
 
+                //Since Zip Code was found, we need to show the success message
+                TextBlockSuccessMessage.Visibility = System.Windows.Visibility.Visible;
+
+                if (usZipCodeFound) //If US Zip found - show US message
+                {
+                    TextBlockSuccessMessage.Text = "We have detected a valid US Zip Code";
+                }
+                else if (canZipCodeFound) //If Candian code found - show Canada message
+                {
+                    TextBlockSuccessMessage.Text = "We have detected a valid Canadian Postal Code";
+                }
 
             }
-            //Code for if a Zip code was NOT found
-            if (usZipCodeFound && canZipCodeFound == false)
+            //Code for if a Zip code was NOT found - from either the US method or the CAN method
+            else if (usZipCodeFound == false && canZipCodeFound == false)
             {
-                //Since Zip code was not found, need to enable the error message
-                TextBlockErrorMessage.IsEnabled = true;
+                //Since Zip code was not found, need to make the error message visible
+                TextBlockErrorMessage.Visibility = System.Windows.Visibility.Visible;
+
+                //Since Zip code was not found, need to hide the success message
+                TextBlockSuccessMessage.Visibility = System.Windows.Visibility.Hidden;
 
                 //If there was previously a valid Zip, the submit button may have been enabled
                 //Since Zip code was not found, need to disable the submit button
@@ -99,7 +113,7 @@ namespace ZipCode_TextBox
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //Pop up a message box to show that the user was successful.
-            MessageBox.Show($"You submitted a valid US or Canadian Zip Code!");
+            MessageBox.Show($"You submitted a valid US Zip Code or Canadian Postal Code!","Success!");
         }
     }
 }
