@@ -20,14 +20,29 @@ namespace TicTacToe
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public string activePlayer = "";
+
+
+
+        //Default constructor
         public MainWindow()
         {
             InitializeComponent();
+
+            //Resize the app to fit the content
+            this.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
+
+            
         }
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
         {
+            //Set X as the first player
+            activePlayer = "X";
 
+            //Set the status bar to be the current player
+            uxTurn.Text = $"Player {activePlayer}'s turn";
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -37,6 +52,15 @@ namespace TicTacToe
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Make the button object
+            Button button = new Button();
+
+            //Set it to the "sender" aka the button that sent the click event
+            button = (Button)sender;
+
+            //Change the button's content to be the active player
+            button.Content = activePlayer;
+
 
         }
     }
