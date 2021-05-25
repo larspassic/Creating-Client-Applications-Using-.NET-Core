@@ -41,6 +41,12 @@ namespace TicTacToe
             //Set X as the first player
             activePlayer = "X";
 
+            //Clear any previous button contents from previous game
+            
+
+            //Set all buttons to be enabled
+
+
             //Set the status bar to be the current player
             uxTurn.Text = $"Player {activePlayer}'s turn";
         }
