@@ -42,11 +42,19 @@ namespace TicTacToe
             activePlayer = "X";
 
             //Clear any previous button contents from previous game
-            
+            foreach (var squareButton in uxGrid.RowDefinitions)
+            {
+                MessageBox.Show(squareButton.Tag.ToString());
+            }
 
             //Set all buttons to be enabled
 
+            //Refresh the status bar
+            RefreshStatusBar();
+        }
 
+        private void RefreshStatusBar()
+        {
             //Set the status bar to be the current player
             uxTurn.Text = $"Player {activePlayer}'s turn";
         }
@@ -65,8 +73,24 @@ namespace TicTacToe
             button = (Button)sender;
 
             //Change the button's content to be the active player
-            button.Content = activePlayer;
+            if (button.Content == null) //Only make a turn if the button doesn't have a player in it
+            {
+                button.Content = activePlayer;
+                
+                //Since we successfully made a move, change to the next player
+                if (activePlayer == "X")
+                {
+                    activePlayer = "O";
+                }
+                else if (activePlayer == "O")
+                {
+                    activePlayer = "X";
+                }
 
+                //Also update the status bar
+                RefreshStatusBar();
+            }
+            
 
         }
     }
