@@ -24,7 +24,6 @@ namespace TicTacToe
         public string activePlayer = "";
 
 
-
         //Default constructor
         public MainWindow()
         {
@@ -33,7 +32,34 @@ namespace TicTacToe
             //Resize the app to fit the content
             this.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
 
-            
+            var gameBoard = createGameBoard();
+
+            foreach (Button squareButton in gameBoard)
+            {
+                squareButton.IsEnabled = false;
+            }
+
+        }
+
+        private List<Button> createGameBoard()
+        {
+            //Maybe pull in all of the button elements and their tags and make a list object?
+            List<Button> gameBoard = new List<Button>();
+
+            gameBoard.AddRange(uxGrid.Children.OfType<Button>());
+
+            //gameBoard cheat sheet:
+            //gameBoard[0] = 0,0
+            //gameBoard[1] = 0,1
+            //gameBoard[2] = 0,2
+            //gameBoard[3] = 1,0
+            //gameBoard[4] = 1,1
+            //gameBoard[5] = 1,2
+            //gameBoard[6] = 2,0
+            //gameBoard[7] = 2,1
+            //gameBoard[8] = 2,2
+
+            return gameBoard;
         }
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
@@ -41,16 +67,23 @@ namespace TicTacToe
             //Set X as the first player
             activePlayer = "X";
 
-            //Clear any previous button contents from previous game
-            foreach (var squareButton in uxGrid.RowDefinitions)
-            {
-                MessageBox.Show(squareButton.Tag.ToString());
-            }
+            //Create a gameBoard object to interact with all of the buttons
+            var gameBoard = createGameBoard();
 
-            //Set all buttons to be enabled
+            //Loop through all of the buttons and do some tasks
+            foreach (Button squareButton in gameBoard)
+            {
+                squareButton.Content = null; //Clear out the content of the buttons
+                squareButton.IsEnabled = true; //Enable the buttons because we're starting a new game
+            }
 
             //Refresh the status bar
             RefreshStatusBar();
+        }
+
+        private void CheckForWinners()
+        {
+
         }
 
         private void RefreshStatusBar()
