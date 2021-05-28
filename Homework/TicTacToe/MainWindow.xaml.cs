@@ -57,9 +57,6 @@ namespace TicTacToe
             //Bring in the game board
             var gameBoard = CreateGameBoard();
 
-            //Create a jagged array of arrays of ints to hold victory patterns
-            int[][] patterns = new int[8][];
-
             //Victory patterns
             //See "cheat sheet" for game board locations
             //gameBoard cheat sheet:
@@ -72,6 +69,9 @@ namespace TicTacToe
             //gameBoard[6] = 2,0
             //gameBoard[7] = 2,1
             //gameBoard[8] = 2,2
+            
+            //Create a jagged array of arrays of ints to hold victory patterns
+            int[][] patterns = new int[8][];
 
             patterns[0] = new int[3] { 0, 1, 2 };
             patterns[1] = new int[3] { 3, 4, 5 };

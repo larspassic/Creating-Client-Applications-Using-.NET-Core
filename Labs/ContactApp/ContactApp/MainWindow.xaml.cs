@@ -11,7 +11,9 @@ namespace ContactApp
     {
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
-        
+        private ContactModel selectedContact; // Added 5/27/2021 during lab
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -64,10 +66,6 @@ namespace ContactApp
         {
         }
 
-        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         //Created during Exercise 1 at 8:30PM on 5/20
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
@@ -106,6 +104,31 @@ namespace ContactApp
             //Sort the column
             uxContactList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
 
+        }
+
+        private void uxContactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedContact = (ContactModel)uxContactList.SelectedValue; // "Unbox the value as a ContactModel object"
+        }
+
+
+        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
+        {
+            App.ContactRepository.Remove(selectedContact.Id);
+            selectedContact = null;
+            LoadContacts();
+        }
+
+        //This code disables the file -> Delete option if there is no contact selected.
+        private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileDelete.IsEnabled = (selectedContact != null);
+        }
+
+        //This code disables the context menu delete option if there is no contact selected.
+        private void uxContextFileDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxContextFileDelete.IsEnabled = (selectedContact != null);
         }
     }
 }
