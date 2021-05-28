@@ -42,6 +42,29 @@ namespace ContactApp
             //uxContactList.ItemsSource = uiContactModelList;
         }
 
+        //Adding "update contact" functions
+
+        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ContactWindow();
+            window.Contact = selectedContact.Clone();
+
+            
+
+            if (window.ShowDialog() == true)
+            {
+                App.ContactRepository.Update(window.Contact.ToRepositoryModel());
+                LoadContacts();
+            }
+        }
+
+        private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileChange.IsEnabled = (selectedContact != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+        }
+
+
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new ContactWindow();
@@ -61,10 +84,6 @@ namespace ContactApp
             }
         }
 
-        //Empty functions for now
-        private void uxFileChange_Click(object sender, RoutedEventArgs e)
-        {
-        }
 
         //Created during Exercise 1 at 8:30PM on 5/20
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -106,9 +125,14 @@ namespace ContactApp
 
         }
 
+        //Important function - detect if selection has been made
         private void uxContactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedContact = (ContactModel)uxContactList.SelectedValue; // "Unbox the value as a ContactModel object"
+
+            // Exercise 1 under Delete - fix the context menu
+            uxContextFileDelete.IsEnabled = (selectedContact != null);
+            uxContextFileChange.IsEnabled = (selectedContact != null);
         }
 
 
@@ -129,6 +153,11 @@ namespace ContactApp
         private void uxContextFileDelete_Loaded(object sender, RoutedEventArgs e)
         {
             uxContextFileDelete.IsEnabled = (selectedContact != null);
+        }
+
+        private void uxContactList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            uxFileChange_Click(sender, null);
         }
     }
 }
