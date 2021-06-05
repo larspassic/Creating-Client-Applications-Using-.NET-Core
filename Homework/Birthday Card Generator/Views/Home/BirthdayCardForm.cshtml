@@ -1,0 +1,49 @@
+﻿@model Birthday_Card_Generator.Models.BirthdayCardInput
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BirthdayCardForm</title>
+</head>
+<body>
+
+<h4>BirthdayCardInput</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="BirthdayCardForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="from" class="control-label"></label>
+                <input asp-for="from" class="form-control" />
+                <span asp-validation-for="from" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="to" class="control-label"></label>
+                <input asp-for="to" class="form-control" />
+                <span asp-validation-for="to" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="message" class="control-label"></label>
+                <input asp-for="message" class="form-control" />
+                <span asp-validation-for="message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>
