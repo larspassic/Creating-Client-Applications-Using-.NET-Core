@@ -14,9 +14,25 @@ namespace Birthday_Card_Generator.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult BirthdayCardForm()
         {
             return View(new BirthdayCardInput());
+        }
+
+        //Receive the data
+        [HttpPost]
+        public IActionResult BirthdayCardForm(Models.BirthdayCardInput birthdayCardInput)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("BirthdayCard", birthdayCardInput);
+            }
+            else
+            {
+                return View(birthdayCardInput);
+            }
+            
         }
     }
 }

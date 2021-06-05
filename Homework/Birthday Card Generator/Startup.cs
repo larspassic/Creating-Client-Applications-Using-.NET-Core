@@ -30,6 +30,7 @@ namespace Birthday_Card_Generator
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
 
             //Code below was included with default solution. Commenting it out.
             //app.Run(async (context) =>
