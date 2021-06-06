@@ -1,0 +1,41 @@
+﻿@model Birthday_Card_Generator.Models.BirthdayCardInput
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>🎉 Happy Birthday! 🎂</title>
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+            <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<div class ="text-center" >
+    <h1>🎉🎁 Happy Birthday @Html.DisplayFor(model => model.to)! 🎂🎈</h1>
+    <hr />
+    <h3>This is a very special Birthday card.</h3>
+    <h4>On this very special day, we wanted to give you this message:</h4>
+    <h3>@Html.DisplayFor(model => model.message)</h3>
+
+    <h4>Warmest regards, from: @Html.DisplayFor(model => model.from)</h4>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

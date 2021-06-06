@@ -1,0 +1,68 @@
+﻿@model Birthday_Card_Generator.Models.BirthdayCardInput
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
+
+    <title>Birthday Card Generator Form</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Welcome to the</h2>
+<h1>Birthday Card Generator Form</h1>
+<hr />
+<div class="row">
+    <div class="text-center">
+        <h3>Please fill out all of the fields, then click "Create Card" to generate your birthday card.</h3>
+        <br />
+        <form asp-action="BirthdayCardForm">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="from" class="control-label">FROM:</label>
+                <input asp-for="from" class="form-control" />
+                <span asp-validation-for="from" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="to" class="control-label">TO:</label>
+                <input asp-for="to" class="form-control" />
+                <span asp-validation-for="to" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="message" class="control-label">MESSAGE:</label>
+                <input asp-for="message" class="form-control" />
+                <span asp-validation-for="message" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="btn btn-success">
+                <input type="submit" value="Create Card" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to home</a>
+</div>
+
+</body>
+</html>
