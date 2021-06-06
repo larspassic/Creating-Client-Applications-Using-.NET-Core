@@ -19,6 +19,9 @@ namespace NumberCounter
             long currentNumber = 0;
             do
             {
+                string userInput = Console.ReadLine();
+                long userInputNumber = long.Parse(userInput);
+
                 if (userInputNumber == 24)
                 {
                     Console.WriteLine($"Lee loves Terese!");
