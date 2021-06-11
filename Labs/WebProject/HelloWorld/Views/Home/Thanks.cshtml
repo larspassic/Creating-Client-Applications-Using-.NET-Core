@@ -3,8 +3,16 @@
     Layout = null;
 }
 <!DOCTYPE html>
+<head>    
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
 <h1>Thank you, @Model.Name</h1>
 <h2>Your RSVP with the email address @Model.Email was successful.</h2>
+<div class="text-center">
+    <h4>This is an H4 RSVP title.</h4>
+</div>
+
+
 @if (Model.WillAttend == true)
 {
     @:Thanks for coming!
