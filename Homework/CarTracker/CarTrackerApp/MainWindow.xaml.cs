@@ -24,5 +24,10 @@ namespace CarTrackerApp
         {
             InitializeComponent();
         }
+
+        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

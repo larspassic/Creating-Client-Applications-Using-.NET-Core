@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:CarTrackerApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem x:Name="uxFileNew" Click="uxFileNew_Click"></MenuItem>
+            </MenuItem>
+            
+        </Menu>
 
-    </Grid>
+    </StackPanel>
 </Window>
