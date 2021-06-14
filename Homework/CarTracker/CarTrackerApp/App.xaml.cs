@@ -13,5 +13,27 @@ namespace CarTrackerApp
     /// </summary>
     public partial class App : Application
     {
+        //Accessor for CarRepository
+
+
+        //First create a private static field
+        private static CarRepository.CarRepository carRepository;
+
+
+        //Not sure what this is
+        static App()
+        {
+            carRepository = new CarRepository.CarRepository();
+        }
+
+        //Create a public property called CarRepository?
+        public static CarRepository.CarRepository CarRepository
+        {
+            get
+            {
+                //Return the private static field from above
+                return carRepository;
+            }
+        }
     }
 }

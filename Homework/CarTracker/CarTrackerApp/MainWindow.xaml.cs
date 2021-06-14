@@ -27,7 +27,21 @@ namespace CarTrackerApp
 
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
+            var window = new CarDetailsWindow();
 
+            if (window.ShowDialog() == true)
+            {
+                //Create a variable for the car model?
+                var uiCarModel = window.Car;
+
+                //Use our converter to convert the CarModel to a RepositoryCarModel
+                var repositoryCarModel = uiCarModel.ToRepositoryModel();
+
+                App.CarRepository.Add(repositoryCarModel);
+
+                //OR
+                //App.CarRepository.Add(window.Car.ToRepositoryModel());
+            }
         }
     }
 }
