@@ -7,10 +7,11 @@ namespace CarRepository
 {
     class DatabaseManager
     {
-        //Create "entities"
+        //Create a field called entities
         private static readonly CarsContext entities;
 
         //Initialize and open the database connection
+        //I think this is a constructor
         static DatabaseManager()
         {
             entities = new CarsContext();
