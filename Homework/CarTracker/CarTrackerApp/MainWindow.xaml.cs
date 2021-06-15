@@ -25,6 +25,8 @@ namespace CarTrackerApp
             InitializeComponent();
         }
 
+        //"Tomorrow if I don't want to use XAML anymore..."
+
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new CarDetailsWindow();

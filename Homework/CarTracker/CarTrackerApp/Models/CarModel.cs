@@ -18,6 +18,7 @@ namespace CarTrackerApp.Models
         public string Notes { get; set; }
         public DateTime CreatedDate { get; set; }
 
+
         //Create a CarRepository.CarModel object
         //And set all of those properties of this model
         //To be properties in the repository model

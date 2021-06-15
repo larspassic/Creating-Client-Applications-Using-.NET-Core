@@ -26,10 +26,16 @@ namespace CarRepository
         //Looks like an "Add" method
         public CarModel Add(CarModel carsModel)
         {
-            //Convert the CarsModel that was sent in via parameter to a DbModel?
+            //Convert the CarModel that was sent in via parameter to a DbModel?
             //
             var carDb = ToDbModel(carsModel);
 
+            //I can do validation here
+            if (carsModel.Make == "Honda")
+            {
+
+            }
+            
             //Add the carDb variable to the "Added" entity state
             DatabaseManager.Instance.Car.Add(carDb);
 
