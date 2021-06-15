@@ -30,11 +30,11 @@ namespace CarRepository
             //
             var carDb = ToDbModel(carsModel);
 
-            //I can do validation here
-            if (carsModel.Make == "Honda")
-            {
+            ////I can do validation here
+            //if (carsModel.Make == "Honda")
+            //{
 
-            }
+            //}
             
             //Add the carDb variable to the "Added" entity state
             DatabaseManager.Instance.Car.Add(carDb);

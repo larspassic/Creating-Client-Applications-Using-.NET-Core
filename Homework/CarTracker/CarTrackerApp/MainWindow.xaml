@@ -13,6 +13,19 @@
             </MenuItem>
             
         </Menu>
-
+        <ListView x:Name="uxMainCarList" Height="250">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Nickname}" Header="Nickname"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Make}" Header="Make" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Model}" Header="Model" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ModelYear}" Header="Year" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Color}" Header="Color" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Type}" Header="Type" Width="100"/>
+                    
+                </GridView>
+            </ListView.View>
+        </ListView>
     </StackPanel>
 </Window>
