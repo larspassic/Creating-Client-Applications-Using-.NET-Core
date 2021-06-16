@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarTrackerApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="850">
     <StackPanel>
         <Menu>
             <MenuItem Header="_File">
@@ -19,7 +19,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="30"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Nickname}" Header="Nickname"/>
+              <!--  <GridViewColumn DisplayMemberBinding="{Binding Nickname}" Header="Nickname"/>  removing nickname-->
                     <GridViewColumn DisplayMemberBinding="{Binding Make}" Header="Make" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Model}" Header="Model" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding ModelYear}" Header="Year" Width="100"/>

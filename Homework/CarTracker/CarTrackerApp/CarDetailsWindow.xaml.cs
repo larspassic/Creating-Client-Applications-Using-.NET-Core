@@ -31,12 +31,24 @@ namespace CarTrackerApp
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Car = new CarModel();
-
-            Car.Make = uxMake.Text;
-            Car.Model = uxModel.Text;
-            Car.ModelYear = int.Parse(uxModelYear.Text);
-            Car.Color = uxColor.Text;
+            //Need help with this
+            //At first, this method created a "new entry"
+            //But then we modified the app to either create a new entry, or modify an existing entry
+            //We used to use the code below to create the new entry
+            //But then we started using bindings in the XAML
+            //And we commented all of this out.
+            
+            //Car = new CarModel();
+            //Car.Make = uxMake.Text;
+            //Car.Model = uxModel.Text;
+            //Car.ModelYear = int.Parse(uxModelYear.Text);
+            //Car.Color = uxColor.Text;
+            //Car.Nickname = uxNickName.Text;
+            //Car.Mileage = int.Parse(uxMileage.Text.Trim());
+            //Car.Notes = uxNotes.Text;
+            ////Trying to add car status here
+            //Car.CreatedDate = DateTime.Now;
+            
             if (uxCar.IsChecked.Value)
             {
                 Car.Type = "Car";
@@ -49,15 +61,6 @@ namespace CarTrackerApp
             {
                 Car.Type = "SUV";
             }
-            Car.Nickname = uxNickName.Text;
-            Car.Mileage = int.Parse(uxMileage.Text.Trim());
-            Car.Notes = uxNotes.Text;
-
-            //Trying to add car status here
-            
-
-            Car.CreatedDate = DateTime.Now;
-
 
             //This is the return value of ShowDialog() below
             DialogResult = true;

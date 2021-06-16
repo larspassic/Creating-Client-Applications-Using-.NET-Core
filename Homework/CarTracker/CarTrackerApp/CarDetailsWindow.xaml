@@ -26,6 +26,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
 
         </Grid.RowDefinitions>
 
@@ -66,7 +67,7 @@
         <TextBlock x:Name="uxCreatedDate" Text="{Binding CreatedDate}" Grid.Column="1" Grid.Row="9" FontStyle="Italic" Foreground="Gray">MM/DD/YYYY</TextBlock>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Right">
-            <Button x:Name="uxSubmit" MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
+            <Button x:Name="uxSubmit" MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Create new</Button>
             <Button x:Name="uxCancel" MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
         </StackPanel>
     </Grid>
