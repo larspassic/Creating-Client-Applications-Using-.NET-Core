@@ -64,6 +64,11 @@ namespace CarTrackerApp.Models
 
             return carModel;
         }
+
+        internal CarModel Clone()
+        {
+            return (CarModel)this.MemberwiseClone();
+        }
     }
 
 }

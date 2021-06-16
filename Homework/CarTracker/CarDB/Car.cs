@@ -16,6 +16,6 @@ namespace CarDB
         public string CarNotes { get; set; }
         public DateTime CarCreatedDate { get; set; }
 
-        public string CarStatus1 { get; set; }
+        //public string CarStatus1 { get; set; }
     }
 }

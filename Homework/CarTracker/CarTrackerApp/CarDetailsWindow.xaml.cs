@@ -50,9 +50,14 @@ namespace CarTrackerApp
                 Car.Type = "SUV";
             }
             Car.Nickname = uxNickName.Text;
-            Car.Mileage = int.Parse(uxMileage.Text);
+            Car.Mileage = int.Parse(uxMileage.Text.Trim());
             Car.Notes = uxNotes.Text;
+
+            //Trying to add car status here
+            
+
             Car.CreatedDate = DateTime.Now;
+
 
             //This is the return value of ShowDialog() below
             DialogResult = true;
@@ -64,6 +69,34 @@ namespace CarTrackerApp
             //This is the return value of ShowDialog() below
             DialogResult = false;
             Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Car != null)
+            {
+                if (Car.Type == "Car")
+                {
+                    uxCar.IsChecked = true;
+                }
+                else if (Car.Type == "Truck")
+                {
+                    uxTruck.IsChecked = true;
+                }
+                else if (Car.Type == "SUV")
+                {
+                    uxSUV.IsChecked = true;
+                }
+                uxSubmit.Content = "Save";
+
+            }
+            else
+            {
+                Car = new CarModel();
+                Car.CreatedDate = DateTime.Now;
+            }
+
+            uxGrid.DataContext = Car;
         }
     }
 }

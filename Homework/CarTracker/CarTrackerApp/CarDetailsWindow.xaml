@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarTrackerApp"
         mc:Ignorable="d"
-        Title="CarDetailsWindow" Height="350" Width="650"
-        FocusManager.FocusedElement="{Binding ElementName=uxMake}">
+        Title="Car Details" Height="350" Width="500"
+        FocusManager.FocusedElement="{Binding ElementName=uxMake}"
+        Loaded="Window_Loaded">
+
 
     <Grid x:Name="uxGrid" Margin="2">
         <Grid.ColumnDefinitions>
@@ -28,16 +30,16 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0"  Grid.Row="0" HorizontalAlignment="Right">Make:</TextBlock>
-        <TextBox x:Name="uxMake" Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBox x:Name="uxMake" Text="{Binding Make}"  Grid.Column="1" Grid.Row="0"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Model:</TextBlock>
-        <TextBox x:Name="uxModel" Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBox x:Name="uxModel" Text="{Binding Model}" Grid.Column="1" Grid.Row="1"></TextBox>
         
         <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">ModelYear:</TextBlock>
-        <TextBox x:Name="uxModelYear" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBox x:Name="uxModelYear" Text="{Binding ModelYear}" Grid.Column="1" Grid.Row="2"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Color:</TextBlock>
-        <TextBox x:Name="uxColor" Grid.Column="1" Grid.Row="3"></TextBox>
+        <TextBox x:Name="uxColor" Text="{Binding Color}" Grid.Column="1" Grid.Row="3"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Type:</TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4">
@@ -49,18 +51,21 @@
 
 
         <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">NickName:</TextBlock>
-        <TextBox x:Name="uxNickName" Grid.Column="1" Grid.Row="5"></TextBox>
+        <TextBox x:Name="uxNickName" Text="{Binding Nickname}"  Grid.Column="1" Grid.Row="5"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Mileage:</TextBlock>
-        <TextBox x:Name="uxMileage" Grid.Column="1" Grid.Row="6"></TextBox>
+        <TextBox x:Name="uxMileage" Text="{Binding Mileage}" Grid.Column="1" Grid.Row="6"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="7" AcceptsReturn="True" TextWrapping="Wrap" Height="70"></TextBox>
+        <TextBox x:Name="uxNotes" Text="{Binding Notes}" Grid.Column="1" Grid.Row="7" AcceptsReturn="True" TextWrapping="Wrap" Height="70"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" >CreatedDate:</TextBlock>
-        <TextBlock x:Name="uxCreatedDate" Grid.Column="1" Grid.Row="8" FontStyle="Italic" Foreground="Gray">MM/DD/YYYY</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">Status:</TextBlock>
+        <TextBox x:Name="uxStatus" Text="{Binding Status}" Grid.Column="1" Grid.Row="8"></TextBox>
+        
+        <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Top" >CreatedDate:</TextBlock>
+        <TextBlock x:Name="uxCreatedDate" Text="{Binding CreatedDate}" Grid.Column="1" Grid.Row="9" FontStyle="Italic" Foreground="Gray">MM/DD/YYYY</TextBlock>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right">
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit" MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
             <Button x:Name="uxCancel" MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
         </StackPanel>

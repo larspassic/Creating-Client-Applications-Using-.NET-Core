@@ -9,23 +9,34 @@
     <StackPanel>
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem x:Name="uxFileNew" Click="uxFileNew_Click"></MenuItem>
+                <MenuItem x:Name="uxFileNew" Header="New" Click="uxFileNew_Click"/>
+                <MenuItem x:Name="uxFileEdit" Header="_Edit" Click="uxFileEdit_Click" Loaded="uxFileEdit_Loaded"/>
+                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded"/>
             </MenuItem>
             
         </Menu>
-        <ListView x:Name="uxMainCarList" Height="250">
+        <ListView x:Name="uxMainCarList" Height="250" SelectionChanged="uxMainCarList_SelectionChanged" MouseDoubleClick="uxMainCarList_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="30"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Nickname}" Header="Nickname"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Make}" Header="Make" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Model}" Header="Model" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding ModelYear}" Header="Year" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Color}" Header="Color" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Type}" Header="Type" Width="100"/>
-                    
+                    <GridViewColumn DisplayMemberBinding="{Binding Status}" Header="Status" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Mileage}" Header="Mileage" Width="100"/>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
+                    <MenuItem x:Name="uxContextFileEdit" Header="_Edit" Click="uxFileEdit_Click" Loaded="uxFileDelete_Loaded"/>
+                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileEdit_Loaded"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
+        <StatusBar x:Name="uxStatusBar" VerticalAlignment="Bottom">Items: </StatusBar>
     </StackPanel>
 </Window>
