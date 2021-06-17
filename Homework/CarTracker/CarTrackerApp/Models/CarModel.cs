@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CarTrackerApp.Models
 {
     //This class appears to convert in and out of CarModel and CarRepository.CarModel
-    public class CarModel
+    public class CarModel : IDataErrorInfo, INotifyPropertyChanged
     {
         public int Id { get; set; }
         public string Make { get; set; }
@@ -18,6 +19,129 @@ namespace CarTrackerApp.Models
         public string Notes { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        //These are fields
+        private string makeError { get; set; }
+        private string modelError { get; set; }
+        private string modelYearError { get; set; }
+
+        //INotifyPropertyChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        //IDataErrorInfo interface
+        public string Error => "Never Used";
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case "Make":
+                        {
+                            MakeError = "";
+
+                            if (Make == null || string.IsNullOrEmpty(Make))
+                            {
+                                MakeError = "Make cannot be empty.";
+                            }
+                            else if (Make.Length > 50)
+                            {
+                                MakeError = "Make cannot be longer than 50 characters.";
+                            }
+
+                            return MakeError;
+                        }
+                    case "Model":
+                        {
+                            if (Model == null || string.IsNullOrEmpty(Model))
+                            {
+                                ModelError = "Model cannot be empty.";
+                            }
+                            else if (Model.Length > 50)
+                            {
+                                ModelError = "Model cannot be longer than 50 characters.";
+                            }
+                            return ModelError;
+                        }
+                    case "Model Year":
+                        {
+                            if(ModelYear.GetType() != typeof(int))
+                            {
+                                ModelYearError = "Model year must be an integer type.";
+                            }
+                            else if (ModelYear == 0 || ModelYear > 2100 || ModelYear < 1900)
+                            {
+                                ModelYearError = "Model year is required. Model year must be between 1900 and 2100.";
+                            }
+                            else if (ModelYear.ToString().Length != 4)
+                            {
+                                ModelYearError = "Model year must be numeric";
+                            }
+                            return ModelYearError;
+                        }
+                }
+                return null;
+            }
+        }
+
+        //This is a property aka "accessor"
+        public string MakeError
+        {
+            get
+            {
+                return makeError;
+            }
+            set
+            {
+                if(makeError != value)
+                {
+                    makeError = value;
+                    OnPropertyChanged("MakeError");
+                }
+            }
+        }
+
+        public string ModelError
+        {
+            get
+            {
+                return modelError;
+            }
+            set
+            {
+                if (modelError != value)
+                {
+                    modelError = value;
+                    OnPropertyChanged("ModelError");
+                }
+
+            }
+        }
+
+        public string ModelYearError
+        {
+            get
+            {
+                return modelYearError;
+
+            }
+            set
+            {
+                if(modelYearError != value)
+                {
+                    modelYearError = value;
+                    OnPropertyChanged("ModelYearError");
+                }
+            }
+        }
+
+        
 
         //Create a CarRepository.CarModel object
         //And set all of those properties of this model
