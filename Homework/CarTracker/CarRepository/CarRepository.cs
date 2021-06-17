@@ -59,9 +59,9 @@ namespace CarRepository
             return carsModel;
         }
 
-        //Looks like a "Get All" method
+
         //Looks like a CarsModel object called items is being made
-        //Using a Linq query stored in an object called t
+        //Using a Linq query stored in an object called t?
         public List<CarModel> GetAll()
         {
             var items = DatabaseManager.Instance.Car.Select(t => new CarModel 
@@ -81,6 +81,8 @@ namespace CarRepository
             
             return items;
         }
+
+
 
         //Looks like a method to update an...object?
         public bool Update(CarModel carsModel)

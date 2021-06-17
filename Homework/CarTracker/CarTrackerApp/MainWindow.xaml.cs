@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,7 @@ namespace CarTrackerApp
             RefreshMainView();
 
             uxMainCarList.SelectedValue = null;
+            //this.SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         
@@ -43,11 +45,32 @@ namespace CarTrackerApp
             //Going with the alternate method to do this
             var uiCarModelList = new List<CarModel>();
 
+            Regex refreshRegex = new Regex(uxSearchBox.Text.ToLower());
+
             foreach (var repositoryCarModel in cars)
             {
                 var uiCarModel = CarModel.ToModel(repositoryCarModel);
-                
-                uiCarModelList.Add(uiCarModel);
+
+                if (uxSearchBox.Text == null)//If there is nothing in the search box
+                {
+                    uiCarModelList.Add(uiCarModel);//just add all of the elements during the refresh
+                }
+                else if (refreshRegex.IsMatch(repositoryCarModel.Make.ToLower())) //Otherwise if there is, compare the filter box
+                {
+                    uiCarModelList.Add(uiCarModel);//add the element if it was found
+                }
+                else if (refreshRegex.IsMatch(repositoryCarModel.Model.ToLower()))
+                {
+                    uiCarModelList.Add(uiCarModel);//add the element if it was found
+                }
+                else if (refreshRegex.IsMatch(repositoryCarModel.Color.ToLower()))
+                {
+                    uiCarModelList.Add(uiCarModel);//add the element if it was found
+                }
+                else if (refreshRegex.IsMatch(repositoryCarModel.Type.ToLower()))
+                {
+                    uiCarModelList.Add(uiCarModel);//add the element if it was found
+                }
             }
 
             //Set the main listview object's items source to be the object we just finished creating
@@ -55,7 +78,7 @@ namespace CarTrackerApp
 
 
             //Trying to update the status bar
-            //uxStatusBar
+            uxStatusBarItemCountTextBlock.Text = uxMainCarList.Items.Count.ToString();
         }
 
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
@@ -80,14 +103,19 @@ namespace CarTrackerApp
 
         private void uxFileEdit_Click(object sender, RoutedEventArgs e)
         {
-            var window = new CarDetailsWindow();
-
-            window.Car = selectedCar.Clone();
-
-            if (window.ShowDialog() == true)
+            if (selectedCar != null)
             {
-                App.CarRepository.Update(window.Car.ToRepositoryModel());
-                RefreshMainView();
+                var window = new CarDetailsWindow();
+
+                window.Car = selectedCar.Clone();
+
+
+
+                if (window.ShowDialog() == true)
+                {
+                    App.CarRepository.Update(window.Car.ToRepositoryModel());
+                    RefreshMainView();
+                }
             }
         }
 
@@ -123,6 +151,11 @@ namespace CarTrackerApp
         private void uxMainCarList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             uxFileEdit_Click(sender, null);
+        }
+
+        private void uxSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RefreshMainView();
         }
     }
 }

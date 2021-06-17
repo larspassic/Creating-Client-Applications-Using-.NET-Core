@@ -91,6 +91,7 @@ namespace CarTrackerApp
                     uxSUV.IsChecked = true;
                 }
                 uxSubmit.Content = "Save";
+                this.Title = "Edit Car";
 
             }
             else

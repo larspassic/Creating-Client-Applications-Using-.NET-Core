@@ -5,16 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarTrackerApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="850">
+        
+        Title="Car Tracker" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
     <StackPanel>
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem x:Name="uxFileNew" Header="New" Click="uxFileNew_Click"/>
-                <MenuItem x:Name="uxFileEdit" Header="_Edit" Click="uxFileEdit_Click" Loaded="uxFileEdit_Loaded"/>
-                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded"/>
+                <MenuItem x:Name="uxFileNew" Header="New Car" Click="uxFileNew_Click"/>
+                <MenuItem x:Name="uxFileEdit" Header="_Edit Car" Click="uxFileEdit_Click" Loaded="uxFileEdit_Loaded"/>
+                <MenuItem x:Name="uxFileDelete" Header="_Delete Car" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded"/>
             </MenuItem>
             
         </Menu>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="uxSearchBoxTextBlock" Grid.Column="0" Grid.Row="0" Text="Text filter 🔎" HorizontalAlignment="Left" Margin="2"></TextBlock>
+            <Separator></Separator>
+            <TextBox x:Name="uxSearchBox" Grid.Column="1" Grid.Row="0" Width="300" HorizontalAlignment="Left" TextChanged="uxSearchBox_TextChanged"></TextBox>
+            
+        </StackPanel>
+        
         <ListView x:Name="uxMainCarList" Height="250" SelectionChanged="uxMainCarList_SelectionChanged" MouseDoubleClick="uxMainCarList_MouseDoubleClick">
             <ListView.View>
                 <GridView>
@@ -31,12 +40,15 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
-                    <MenuItem x:Name="uxContextFileEdit" Header="_Edit" Click="uxFileEdit_Click" Loaded="uxFileDelete_Loaded"/>
-                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileEdit_Loaded"/>
+                    <MenuItem x:Name="uxContextFileNew" Header="_New Car" Click="uxFileNew_Click"/>
+                    <MenuItem x:Name="uxContextFileEdit" Header="_Edit Car" Click="uxFileEdit_Click" Loaded="uxFileDelete_Loaded"/>
+                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete Car" Click="uxFileDelete_Click" Loaded="uxFileEdit_Loaded"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
-        <StatusBar x:Name="uxStatusBar" VerticalAlignment="Bottom">Items: </StatusBar>
+        <StatusBar x:Name="uxStatusBar">
+            <TextBlock x:Name="uxStatusBarTextBlock" Text="Items:"></TextBlock>
+            <TextBlock x:Name="uxStatusBarItemCountTextBlock" ></TextBlock>
+        </StatusBar>
     </StackPanel>
 </Window>

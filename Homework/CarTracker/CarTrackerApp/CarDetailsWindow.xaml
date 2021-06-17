@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarTrackerApp"
         mc:Ignorable="d"
-        Title="Car Details" Height="350" Width="500"
+        Title="Create New Car" Height="360" Width="500"
         FocusManager.FocusedElement="{Binding ElementName=uxMake}"
         Loaded="Window_Loaded">
 
 
-    <Grid x:Name="uxGrid" Margin="2">
+    <Grid x:Name="uxGrid" Margin="2" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="1*"/>
@@ -30,29 +30,29 @@
 
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0"  Grid.Row="0" HorizontalAlignment="Right">Make:</TextBlock>
+        <TextBlock Grid.Column="0"  Grid.Row="0" HorizontalAlignment="Right" Margin="2">Make:</TextBlock>
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBox x:Name="uxMake" Text="{Binding Make}"  />
+            <TextBox x:Name="uxMake" Text="{Binding Make, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"  />
             <TextBlock x:Name="uxMakeError" Text="{Binding MakeError, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
-        
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Model:</TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Model:</TextBlock>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBox x:Name="uxModel" Text="{Binding Model}" Grid.Column="1" Grid.Row="1"></TextBox>
+            <TextBox x:Name="uxModel" Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.Row="1"></TextBox>
             <TextBlock x:Name="uxModelError" Text="{Binding ModelError, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">ModelYear:</TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="2">ModelYear:</TextBlock>
         <StackPanel Grid.Column="1" Grid.Row="2">
-            <TextBox x:Name="uxModelYear" Text="{Binding ModelYear}" Grid.Column="1" Grid.Row="2"></TextBox>
+            <TextBox x:Name="uxModelYear" Text="{Binding ModelYear, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.Row="2"></TextBox>
             <TextBlock x:Name="uxModelYearError" Text="{Binding ModelYearError, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Color:</TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="2">Color:</TextBlock>
         <TextBox x:Name="uxColor" Text="{Binding Color}" Grid.Column="1" Grid.Row="3"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Type:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="2">Type:</TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4">
             <RadioButton x:Name="uxCar">Car</RadioButton>
             <RadioButton x:Name="uxTruck">Truck</RadioButton>
@@ -61,20 +61,20 @@
         </StackPanel>
 
 
-        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">NickName:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" Margin="2">NickName:</TextBlock>
         <TextBox x:Name="uxNickName" Text="{Binding Nickname}"  Grid.Column="1" Grid.Row="5"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Mileage:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Margin="2">Mileage:</TextBlock>
         <TextBox x:Name="uxMileage" Text="{Binding Mileage}" Grid.Column="1" Grid.Row="6"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right">Notes:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Margin="2">Notes:</TextBlock>
         <TextBox x:Name="uxNotes" Text="{Binding Notes}" Grid.Column="1" Grid.Row="7" AcceptsReturn="True" TextWrapping="Wrap" Height="70"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">Status:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Margin="2">Status:</TextBlock>
         <TextBox x:Name="uxStatus" Text="{Binding Status}" Grid.Column="1" Grid.Row="8"></TextBox>
         
-        <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Top" >CreatedDate:</TextBlock>
-        <TextBlock x:Name="uxCreatedDate" Text="{Binding CreatedDate}" Grid.Column="1" Grid.Row="9" FontStyle="Italic" Foreground="Gray">MM/DD/YYYY</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2">CreatedDate:</TextBlock>
+        <TextBlock x:Name="uxCreatedDate" Text="{Binding CreatedDate}" Grid.Column="1" Grid.Row="9" FontStyle="Italic" Foreground="Gray"></TextBlock>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit" MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Create new</Button>

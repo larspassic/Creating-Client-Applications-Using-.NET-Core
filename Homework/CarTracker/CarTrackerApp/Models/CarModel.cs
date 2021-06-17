@@ -59,6 +59,8 @@ namespace CarTrackerApp.Models
                         }
                     case "Model":
                         {
+                            ModelError = "";
+
                             if (Model == null || string.IsNullOrEmpty(Model))
                             {
                                 ModelError = "Model cannot be empty.";
@@ -69,20 +71,19 @@ namespace CarTrackerApp.Models
                             }
                             return ModelError;
                         }
-                    case "Model Year":
+                    case "ModelYear":
                         {
-                            if(ModelYear.GetType() != typeof(int))
+                            ModelYearError = "";
+
+                            if (ModelYear.ToString().Length != 4)
                             {
-                                ModelYearError = "Model year must be an integer type.";
+                                ModelYearError = "Please enter 4 digits for model year.";
                             }
                             else if (ModelYear == 0 || ModelYear > 2100 || ModelYear < 1900)
                             {
-                                ModelYearError = "Model year is required. Model year must be between 1900 and 2100.";
+                                ModelYearError = "Model year must be between 1900 and 2100.";
                             }
-                            else if (ModelYear.ToString().Length != 4)
-                            {
-                                ModelYearError = "Model year must be numeric";
-                            }
+
                             return ModelYearError;
                         }
                 }
@@ -141,6 +142,7 @@ namespace CarTrackerApp.Models
             }
         }
 
+        //End of the validation code
         
 
         //Create a CarRepository.CarModel object
