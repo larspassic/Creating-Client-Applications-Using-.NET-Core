@@ -22,12 +22,15 @@ namespace CarTrackerApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Window mainWindow;
+
+
         public MainWindow()
         {
             InitializeComponent();
 
             RefreshMainView();
-
+            
             uxMainCarList.SelectedValue = null;
             //this.SizeToContent = SizeToContent.WidthAndHeight;
         }
@@ -132,6 +135,7 @@ namespace CarTrackerApp
         private void uxMainCarList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Set the selected car to be the "selected value" of the main listview element
+            
             selectedCar = (CarModel)uxMainCarList.SelectedValue;
         }
 
@@ -156,6 +160,11 @@ namespace CarTrackerApp
         private void uxSearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             RefreshMainView();
+        }
+
+        private void uxMainCarList_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            uxMainCarList.UnselectAll();
         }
     }
 }

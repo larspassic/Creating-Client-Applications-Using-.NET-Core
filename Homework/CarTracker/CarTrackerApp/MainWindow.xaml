@@ -24,8 +24,8 @@
             
         </StackPanel>
         
-        <ListView x:Name="uxMainCarList" Height="250" SelectionChanged="uxMainCarList_SelectionChanged" MouseDoubleClick="uxMainCarList_MouseDoubleClick">
-            <ListView.View>
+        <ListView x:Name="uxMainCarList" Height="250" SelectionChanged="uxMainCarList_SelectionChanged" MouseDoubleClick="uxMainCarList_MouseDoubleClick" MouseLeftButtonDown="uxMainCarList_MouseLeftButtonDown">
+            <ListView.View >
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="30"/>
               <!--  <GridViewColumn DisplayMemberBinding="{Binding Nickname}" Header="Nickname"/>  removing nickname column-->

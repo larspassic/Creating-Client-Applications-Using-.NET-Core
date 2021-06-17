@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CarTrackerApp.Models;
 
+
 namespace CarTrackerApp
 {
     /// <summary>
@@ -21,7 +22,8 @@ namespace CarTrackerApp
         public CarDetailsWindow()
         {
             InitializeComponent();
-
+            this.Owner = Application.Current.MainWindow;
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             //Hide the popup window from the Windows Taskbar
             ShowInTaskbar = false;
 
@@ -102,5 +104,14 @@ namespace CarTrackerApp
 
             uxGrid.DataContext = Car;
         }
+
+        private void uxRequiredFields_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (uxMakeError.Text == "" && uxModelError.Text == "" && uxModelYearError.Text == "")
+            {
+                uxSubmit.IsEnabled = true;
+            }
+        }
+
     }
 }

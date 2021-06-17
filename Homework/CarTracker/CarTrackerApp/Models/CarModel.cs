@@ -31,7 +31,9 @@ namespace CarTrackerApp.Models
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         }
+
 
         //IDataErrorInfo interface
         public string Error => "Never Used";
@@ -49,6 +51,7 @@ namespace CarTrackerApp.Models
                             if (Make == null || string.IsNullOrEmpty(Make))
                             {
                                 MakeError = "Make cannot be empty.";
+                                
                             }
                             else if (Make.Length > 50)
                             {
@@ -79,9 +82,9 @@ namespace CarTrackerApp.Models
                             {
                                 ModelYearError = "Please enter 4 digits for model year.";
                             }
-                            else if (ModelYear == 0 || ModelYear > 2100 || ModelYear < 1900)
+                            else if (ModelYear == 0 || ModelYear > 2600 || ModelYear < 1900)
                             {
-                                ModelYearError = "Model year must be between 1900 and 2100.";
+                                ModelYearError = "Model year must be between 1900 and 2600.";
                             }
 
                             return ModelYearError;
@@ -103,6 +106,7 @@ namespace CarTrackerApp.Models
                 if(makeError != value)
                 {
                     makeError = value;
+                    
                     OnPropertyChanged("MakeError");
                 }
             }
