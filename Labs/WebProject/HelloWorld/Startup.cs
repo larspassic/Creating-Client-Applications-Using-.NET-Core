@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HelloWorld
 {
@@ -15,6 +16,13 @@ namespace HelloWorld
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Session service - added in class
+            services.AddSession();
+            
+            
+            //Caching service - added in class
+            services.AddMemoryCache();
+            
             services
             // Add FULL MVC handling (Do not call AddMvcCore())
             .AddMvc()
@@ -23,11 +31,16 @@ namespace HelloWorld
 
             //Dependency Injection Registration
             services.AddSingleton<IProductRepository, ProductRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //Adds the ASP.NET core session middleware
+            app.UseSession();
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
